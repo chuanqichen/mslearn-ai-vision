@@ -5,6 +5,7 @@ import sys
 from matplotlib import pyplot as plt
 from azure.core.exceptions import HttpResponseError
 import requests
+import numpy as np
 
 # Import namespaces
 # import namespaces
@@ -145,7 +146,7 @@ def AnalyzeImage(image_filename, image_data, cv_client):
 def BackgroundForeground(endpoint, key, image_file):
     # Define the API version and mode
     api_version = "2023-02-01-preview"
-    mode="backgroundRemoval" # Can be "foregroundMatting" or "backgroundRemoval"
+    mode=np.random.choice(["foregroundMatting", "backgroundRemoval"])  # Can be "foregroundMatting" or "backgroundRemoval"
     
     # Remove the background from the image or generate a foreground matte
     # Remove the background from the image or generate a foreground matte
